@@ -37,3 +37,42 @@ I Have also created a microservice enviroment to illustrate The **CONTACT SERVIC
 **CONFIG-SERVICE** - The Config server whic uses a git Url for easy configurtation updates runs at port **8082**
 
 **HYSTRIX-DASHBOARD** - To monitor hystrix streams runs at port **8083**
+
+## How to Run The Stand Alone Micro Service
+
+You must have Maven, run the following command in a terminal window (in the complete) directory (contact-service-stand-alone):
+
+```bash
+./mvnw spring-boot:run
+```
+## How to Run The whole Microservice architecture
+
+1. You must have Maven, run the following command in a terminal window (in the complete) directory **(service-registry)**:
+
+```bash
+./mvnw spring-boot:run
+```
+
+2. You must have Maven, run the following command in a terminal window (in the complete) directory **(cloud-config-server)**:
+
+```bash
+./mvnw spring-boot:run
+```
+
+3. You must have Maven, run the following command in a terminal window (in the complete) directory **(cloud-gateway)**:
+
+```bash
+./mvnw spring-boot:run
+```
+
+4. You must have Maven, run the following command in a terminal window (in the complete) directory **(contact-service)**:
+
+```bash
+./mvnw spring-boot:run
+```
+
+5. You must have Maven, run the following command in a terminal window (in the complete) directory **(hystrix-dashboard)** :
+
+```bash
+./mvnw spring-boot:run
+```
