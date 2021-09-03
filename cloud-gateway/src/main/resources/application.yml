@@ -1,0 +1,38 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: API-GATEWAY
+  cloud:
+    gateway:
+      routes:
+        - id: CONTACT-SERVICE
+          uri: lb://CONTACT-SERVICE
+          predicates:
+            - Path=/contacts/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: CONTACT-SERVICE
+                fallbackuri: forward:/contactServiceFallBack
+    config:
+      import-check:
+        enabled: false
+
+
+
+hystrix:
+  command:
+    fallbackcmd:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 15000 #15 seconds timout for circuit breaker
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
